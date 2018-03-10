@@ -1,0 +1,1 @@
+Pour savoir quelle est la version de debian installee il faut cat /etc/debian_version

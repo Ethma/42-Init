@@ -1,0 +1,2 @@
+Pour faire pointer l'ip donnee sur l'adresse intra.42.fr il faut ajouter au fichier /etc/hostsla ligne suivante :
+46.19.122.85 intra.42.fr
