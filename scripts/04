@@ -1,0 +1,9 @@
+sudo crontab -l > tmp
+echo "0 0 * * * \
+	md5sum1=\"\$(md5sum /etc/crontab | awk '{ print \$1 }')\" && \
+	md5sum2=\"\$(cat /etc/crontab.log)\" && \
+	if [ '\$md5sum1' != '\$md5sum2' ] ; then \
+		md5sum /etc/crontab | awk '{ print \$1 }' > /etc/crontab.log && \
+		echo '/etc/crontab was modified since \$(date)' | mail -s '/etc/crontab modifier' root ; fi" >> tmp
+sudo crontab tmp
+rm tmp
